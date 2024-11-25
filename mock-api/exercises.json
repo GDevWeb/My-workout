@@ -28,5 +28,33 @@
       "equipment": "body weight",
       "target": "quads"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "email": "alice@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "email": "bob@example.com"
+    }
+  ],
+  "workouts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "exerciseId": 1,
+      "reps": 10,
+      "weight": 0
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "exerciseId": 2,
+      "reps": 8,
+      "weight": 0
+    }
   ]
 }
