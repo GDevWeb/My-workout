@@ -1,5 +1,8 @@
+import { signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import WorkoutForm from "../components/WorkoutForm";
+import { auth } from "../firebase/firebase";
 import { getFromLocalStorage, saveToLocalStorage } from "../utils/localStorage";
 
 const Dashboard = () => {
@@ -8,12 +11,24 @@ const Dashboard = () => {
     getFromLocalStorage("workouts", [])
   );
 
+  // 2.Functions :
+  const navigate = useNavigate();
+
   useEffect(() => {
     saveToLocalStorage("workouts", workouts);
   }, [workouts]);
 
+  // Ajouter un exercice:
   const handleAddWorkout = (workout) => {
     setWorkouts((prev) => [...prev, workout]);
+  };
+  // Se déconnecter:<
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Erreur lors de la déconnexion:", error.message);
+    }
   };
 
   return (
@@ -28,6 +43,9 @@ const Dashboard = () => {
           </li>;
         })}
       </ul>
+
+      <button onClick={handleLogout}>Se déconnecter</button>
+      {/* Affichage des entraînements ici */}
     </div>
   );
 };
