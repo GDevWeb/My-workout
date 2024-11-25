@@ -1,0 +1,32 @@
+{
+  "exercises": [
+    {
+      "id": 1,
+      "name": "Push-Up",
+      "bodyPart": "chest",
+      "equipment": "body weight",
+      "target": "pectorals"
+    },
+    {
+      "id": 2,
+      "name": "Pull-Up",
+      "bodyPart": "back",
+      "equipment": "body weight",
+      "target": "lats"
+    },
+    {
+      "id": 3,
+      "name": "Squat",
+      "bodyPart": "legs",
+      "equipment": "body weight",
+      "target": "quads"
+    },
+    {
+      "id": 4,
+      "name": "Soulevé de Terre",
+      "bodyPart": "legs",
+      "equipment": "body weight",
+      "target": "quads"
+    }
+  ]
+}

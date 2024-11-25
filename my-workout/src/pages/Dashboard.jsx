@@ -26,6 +26,7 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
+      navigate("/login");
     } catch (error) {
       console.error("Erreur lors de la déconnexion:", error.message);
     }
