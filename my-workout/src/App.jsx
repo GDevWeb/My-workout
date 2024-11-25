@@ -18,7 +18,7 @@ function App() {
             progrès au fil du temps.
           </p>
         ) : (
-          "hello"
+          "Vos dernières séances d'entraînements"
         )}
       </main>
     </div>

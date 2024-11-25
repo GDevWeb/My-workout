@@ -38,7 +38,7 @@ const Dashboard = () => {
       <h1 className="text-3xl font-bold text-gray-800 mb-6">
         Bienvenue, {currentUser.email}
       </h1>
-      <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+      <h2 className="text-2xl text-center font-semibold text-blue-600 mb-4">
         Journal d&apos;entraînement
       </h2>
       <WorkoutForm onSubmit={handleAddWorkout} />
@@ -48,12 +48,21 @@ const Dashboard = () => {
             {workouts.map((workout) => (
               <li
                 key={workout.id}
-                className="flex items-center justify-between p-4 bg-gray-100 shadow rounded-md"
+                className="p-4 bg-gray-100 shadow rounded-md"
               >
-                <span>
-                  <strong>{workout.exercise}</strong> - {workout.reps} reps à{" "}
-                  {workout.weight} kg
-                </span>
+                <div className="mb-2">
+                  <span className="text-sm text-gray-500">
+                    {workout.date} à {workout.time}
+                  </span>
+                </div>
+                <ul className="pl-4">
+                  {workout.exercises.map((ex, idx) => (
+                    <li key={idx}>
+                      <strong>{ex.exercise}</strong> - {ex.reps} reps à{" "}
+                      {ex.weight} kg
+                    </li>
+                  ))}
+                </ul>
                 <button
                   onClick={() => handleDeleteWorkout(workout.id)}
                   className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
@@ -78,3 +87,15 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+{
+  /* 
+  
+  <button
+onClick={() => handleDeleteWorkout(workout.id)}
+className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+>
+Supprimer
+</button> 
+*/
+}
