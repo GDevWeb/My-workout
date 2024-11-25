@@ -16,11 +16,11 @@ const WorkoutForm = ({ onSubmit }) => {
       } catch (error) {
         console.error("Erreur lors de la récupération des exercices :", error);
       } finally {
-        setLoading(false); // Arrêter le chargement une fois les exercices récupérés
+        setLoading(false);
       }
     };
     fetchExercises();
-  }, []); // Le tableau vide garantit que l'effet ne se déclenche qu'une fois
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,16 +35,19 @@ const WorkoutForm = ({ onSubmit }) => {
   };
 
   return (
-    <>
-      <h1>Reportez votre entraînement</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="bg-white shadow-md rounded-lg p-6 max-w-md mx-auto">
+      <h1 className="text-2xl font-semibold text-gray-800 mb-4">
+        Reportez votre entraînement
+      </h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {loading ? (
-          <p>Chargement des exercices...</p>
+          <p className="text-gray-500">Chargement des exercices...</p>
         ) : (
           <>
             <select
               value={exercise}
               onChange={(e) => setExercise(e.target.value)}
+              className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"
               required
             >
               <option value="">Choisissez un exercice</option>
@@ -59,6 +62,7 @@ const WorkoutForm = ({ onSubmit }) => {
               placeholder="Répétitions"
               value={reps}
               onChange={(e) => setReps(e.target.value)}
+              className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"
               required
             />
             <input
@@ -66,13 +70,19 @@ const WorkoutForm = ({ onSubmit }) => {
               placeholder="Poids (kg)"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
+              className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"
               required
             />
-            <button type="submit">Ajouter</button>
+            <button
+              type="submit"
+              className="p-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition"
+            >
+              Ajouter
+            </button>
           </>
         )}
       </form>
-    </>
+    </div>
   );
 };
 

@@ -1,17 +1,25 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import WorkoutForm from "../components/WorkoutForm";
+import { AuthContext } from "../context/authContext";
 import { addWorkout, deleteWorkout, getWorkouts } from "../services/workoutApi";
 
 const Dashboard = () => {
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
+    if (!currentUser) {
+      navigate("/login"); // Redirection si pas authentifié
+    }
+
     const fetchWorkouts = async () => {
       const data = await getWorkouts();
       setWorkouts(data);
     };
     fetchWorkouts();
-  }, []);
+  }, [currentUser, navigate]);
 
   const handleAddWorkout = async (workout) => {
     const newWorkout = await addWorkout(workout);
@@ -25,21 +33,47 @@ const Dashboard = () => {
     setWorkouts((prev) => prev.filter((workout) => workout.id !== id));
   };
 
-  return (
-    <div>
-      <h1>Journal d'entraînement</h1>
+  return currentUser ? (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">
+        Bienvenue, {currentUser.email}
+      </h1>
+      <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+        Journal d&apos;entraînement
+      </h2>
       <WorkoutForm onSubmit={handleAddWorkout} />
-      <ul>
-        {workouts.map((workout) => (
-          <li key={workout.id}>
-            {workout.exercise} - {workout.reps} reps à {workout.weight} kg
-            <button onClick={() => handleDeleteWorkout(workout.id)}>
-              Supprimer
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className="mt-8">
+        {workouts.length > 0 ? (
+          <ul className="space-y-4">
+            {workouts.map((workout) => (
+              <li
+                key={workout.id}
+                className="flex items-center justify-between p-4 bg-gray-100 shadow rounded-md"
+              >
+                <span>
+                  <strong>{workout.exercise}</strong> - {workout.reps} reps à{" "}
+                  {workout.weight} kg
+                </span>
+                <button
+                  onClick={() => handleDeleteWorkout(workout.id)}
+                  className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+                >
+                  Supprimer
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-gray-500">
+            Aucun entraînement enregistré pour le moment.
+          </p>
+        )}
+      </div>
     </div>
+  ) : (
+    <h2 className="text-center text-red-500 mt-10">
+      Vous devez être authentifié pour accéder à cette page !
+    </h2>
   );
 };
 
