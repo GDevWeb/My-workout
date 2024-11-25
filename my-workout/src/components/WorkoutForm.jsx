@@ -31,12 +31,17 @@ const WorkoutForm = ({ onSubmit }) => {
   }, []);
 
   const handleAddExercise = () => {
-    if (!newExercise.exercise || !newExercise.reps || !newExercise.weight) {
+    if (
+      !newExercise.exercise ||
+      !newExercise.reps ||
+      !newExercise.weight ||
+      !newExercise.rest
+    ) {
       alert("Veuillez remplir tous les champs pour ajouter un exercice.");
       return;
     }
     setWorkoutExercises((prev) => [...prev, newExercise]);
-    setNewExercise({ exercise: "", reps: "", weight: "" });
+    setNewExercise({ exercise: "", reps: "", weight: "", rest: "" });
   };
 
   const handleRemoveExercise = (index) => {

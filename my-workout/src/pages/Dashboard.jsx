@@ -59,7 +59,7 @@ const Dashboard = () => {
                   {workout.exercises.map((ex, idx) => (
                     <li key={idx}>
                       <strong>{ex.exercise}</strong> - {ex.reps} reps à{" "}
-                      {ex.weight} kg
+                      {ex.weight} kg - pause {ex.rest}
                     </li>
                   ))}
                 </ul>
