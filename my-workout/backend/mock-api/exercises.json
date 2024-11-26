@@ -27,6 +27,20 @@
       "bodyPart": "legs",
       "equipment": "body weight",
       "target": "quads"
+    },
+    {
+      "id": "5",
+      "name": "Fentes marchées",
+      "bodyPart": "legs",
+      "equipment": "body weight",
+      "target": "legs"
+    },
+    {
+      "id": "6",
+      "name": "Ext. mollets debout",
+      "bodyPart": "mollets",
+      "equipment": "body weight",
+      "target": "calf"
     }
   ],
   "users": [
@@ -43,19 +57,103 @@
   ],
   "workouts": [
     {
-      "id": "9084",
+      "id": "30d7",
       "date": "2024-11-26",
-      "time": "18:04",
+      "time": "19:28",
       "exercises": [
         {
-          "exercise": "Push-Up",
+          "exercise": "Squat",
+          "reps": "20",
+          "weight": "20",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
           "reps": "15",
-          "weight": "71",
-          "rest": "00:02"
+          "weight": "30",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "12",
+          "weight": "40",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "10",
+          "weight": "50",
+          "rest": "02:15"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "8",
+          "weight": "60",
+          "rest": "02:30"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "6",
+          "weight": "70",
+          "rest": "02:30"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "6",
+          "weight": "80",
+          "rest": "03:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "6",
+          "weight": "80",
+          "rest": "03:30"
+        },
+        {
+          "exercise": "Soulevé de Terre",
+          "reps": "10",
+          "weight": "70",
+          "rest": "02:30"
+        },
+        {
+          "exercise": "Soulevé de Terre",
+          "reps": "10",
+          "weight": "70",
+          "rest": "02:30"
+        },
+        {
+          "exercise": "Soulevé de Terre",
+          "reps": "10",
+          "weight": "70",
+          "rest": "02:30"
+        },
+        {
+          "exercise": "Soulevé de Terre",
+          "reps": "10",
+          "weight": "70",
+          "rest": "02:30"
+        },
+        {
+          "exercise": "Ext. mollets debout",
+          "reps": "15",
+          "weight": "60",
+          "rest": "01:30"
+        },
+        {
+          "exercise": "Ext. mollets debout",
+          "reps": "15",
+          "weight": "60",
+          "rest": "01:30"
+        },
+        {
+          "exercise": "Ext. mollets debout",
+          "reps": "15",
+          "weight": "60",
+          "rest": "01:30"
         }
       ],
-      "totalLoad": 1065,
-      "totalDuration": 75
+      "totalLoad": 9190,
+      "totalDuration": 869
     }
   ]
 }
