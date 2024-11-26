@@ -33,6 +33,12 @@ const Dashboard = () => {
     setWorkouts((prev) => prev.filter((workout) => workout.id !== id));
   };
 
+  const formatDuration = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes} minutes et ${remainingSeconds} secondes`;
+  };
+
   return currentUser ? (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">
@@ -54,18 +60,26 @@ const Dashboard = () => {
                   <span className="text-sm text-gray-500">
                     {workout.date} à {workout.time}
                   </span>
+                  <span className="block text-gray-700 font-semibold">
+                    Charge totale : {workout.totalLoad} kg
+                  </span>
+                  <span className="block text-gray-700 font-semibold">
+                    Durée totale : {formatDuration(workout.totalDuration)}
+                  </span>
                 </div>
                 <ul className="pl-4">
                   {workout.exercises.map((ex, idx) => (
-                    <li key={idx}>
-                      <strong>{ex.exercise}</strong> - {ex.reps} reps à{" "}
-                      {ex.weight} kg - pause {ex.rest}
+                    <li key={idx} className="flex justify-between items-center">
+                      <span>
+                        <strong>{ex.exercise}</strong> - {ex.reps} reps à{" "}
+                        {ex.weight} kg, Pause : {ex.rest} sec
+                      </span>
                     </li>
                   ))}
                 </ul>
                 <button
                   onClick={() => handleDeleteWorkout(workout.id)}
-                  className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+                  className="bg-red-500 text-white px-2 py-2 rounded-md hover:bg-red-600 transition"
                 >
                   Supprimer
                 </button>
@@ -77,7 +91,7 @@ const Dashboard = () => {
             Aucun entraînement enregistré pour le moment.
           </p>
         )}
-      </div>
+      </div>{" "}
     </div>
   ) : (
     <h2 className="text-center text-red-500 mt-10">
@@ -87,15 +101,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-{
-  /* 
-  
-  <button
-onClick={() => handleDeleteWorkout(workout.id)}
-className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
->
-Supprimer
-</button> 
-*/
-}

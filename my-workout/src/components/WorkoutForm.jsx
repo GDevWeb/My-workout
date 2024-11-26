@@ -15,6 +15,7 @@ const WorkoutForm = ({ onSubmit }) => {
     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
   );
   const [loading, setLoading] = useState(true);
+  const [manualDuration, setManualDuration] = useState("");
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -29,6 +30,22 @@ const WorkoutForm = ({ onSubmit }) => {
     };
     fetchExercises();
   }, []);
+
+  const calculateTotalDuration = () => {
+    const timePerRep = 5; // Estimé : 5 secondes par rép
+    return workoutExercises.reduce((total, ex) => {
+      const exerciseDuration = ex.reps * timePerRep;
+      const restDuration = parseInt(ex.rest, 10) || 0;
+      return total + exerciseDuration + restDuration;
+    }, 0); // En secondes
+  };
+
+  const calculateTotalLoad = () => {
+    return workoutExercises.reduce(
+      (total, ex) => total + ex.reps * ex.weight,
+      0
+    );
+  };
 
   const handleAddExercise = () => {
     if (
@@ -58,10 +75,14 @@ const WorkoutForm = ({ onSubmit }) => {
       date,
       time,
       exercises: workoutExercises,
-      rest: "",
+      totalLoad: calculateTotalLoad(), // Ajout de la charge totale
+      totalDuration: manualDuration
+        ? parseInt(manualDuration, 10) * 60
+        : calculateTotalDuration(), // Priorité à la durée saisie
     };
     onSubmit(workout);
     setWorkoutExercises([]);
+    setManualDuration("");
   };
 
   return (
@@ -163,6 +184,33 @@ const WorkoutForm = ({ onSubmit }) => {
                 className="p-2 border border-gray-300 rounded-md w-1/2"
               />
             </div>
+            <div className="bg-gray-50 p-4 rounded-md mt-4">
+              <h2 className="text-lg font-medium text-gray-700 mb-2">
+                Durée totale
+              </h2>
+              <p className="text-gray-600">
+                {Math.floor(calculateTotalDuration() / 60)} minutes et{" "}
+                {calculateTotalDuration() % 60} secondes
+              </p>
+
+              <label
+                htmlFor="manualDuration"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Durée totale (en minutes, optionnel)
+              </label>
+            </div>
+            <div>
+              <input
+                type="number"
+                id="manualDuration"
+                placeholder="Durée totale en minutes"
+                value={manualDuration}
+                onChange={(e) => setManualDuration(e.target.value)}
+                className="p-2 border border-gray-300 rounded-md w-full mt-2"
+              />
+            </div>
+
             <button
               type="button"
               onClick={handleAddExercise}

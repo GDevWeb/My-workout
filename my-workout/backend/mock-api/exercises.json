@@ -1,0 +1,61 @@
+{
+  "exercises": [
+    {
+      "id": "1",
+      "name": "Push-Up",
+      "bodyPart": "chest",
+      "equipment": "body weight",
+      "target": "pectorals"
+    },
+    {
+      "id": "2",
+      "name": "Pull-Up",
+      "bodyPart": "back",
+      "equipment": "body weight",
+      "target": "lats"
+    },
+    {
+      "id": "3",
+      "name": "Squat",
+      "bodyPart": "legs",
+      "equipment": "body weight",
+      "target": "quads"
+    },
+    {
+      "id": "4",
+      "name": "Soulevé de Terre",
+      "bodyPart": "legs",
+      "equipment": "body weight",
+      "target": "quads"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Alice",
+      "email": "alice@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Bob",
+      "email": "bob@example.com"
+    }
+  ],
+  "workouts": [
+    {
+      "id": "9084",
+      "date": "2024-11-26",
+      "time": "18:04",
+      "exercises": [
+        {
+          "exercise": "Push-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "00:02"
+        }
+      ],
+      "totalLoad": 1065,
+      "totalDuration": 75
+    }
+  ]
+}

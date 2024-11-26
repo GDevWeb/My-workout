@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
 
@@ -19,8 +19,16 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe(); // Nettoyer l'écouteur
   }, []);
 
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Erreur lors de la déconnexion", error.message);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser }}>
+    <AuthContext.Provider value={{ currentUser, logout }}>
       {!loading && children}
     </AuthContext.Provider>
   );

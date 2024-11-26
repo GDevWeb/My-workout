@@ -3,8 +3,9 @@ import { AuthContext } from "../context/authContext";
 
 const NavBar = () => {
   // 1.state
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, logout } = useContext(AuthContext);
   // 2.functions
+
   // 3.render :
   return (
     <nav>
@@ -22,8 +23,8 @@ const NavBar = () => {
             </a>
           </li>
         ) : (
-          <li>
-            <a href="/logout" className="hover:text-blue-300 transition">
+          <li onClick={logout}>
+            <a href="/" className="hover:text-blue-300 transition">
               Déconnexion
             </a>
           </li>
