@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       setLoading(false);
+      console.info("Logged !");
     });
 
     return () => unsubscribe(); // Nettoyer l'écouteur
