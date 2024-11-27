@@ -20,13 +20,13 @@ const CardExercise = ({
         </h1>
         <h2 className="text-sm font-bold text-gray-500">{formatDate(date)}</h2>
       </div>
-      <main>
+      <main className="flex-auto">
         <p className="font-semibold text-gray-700 mb-2">Exercices :</p>
-        <ul className="space-y-2">
+        <ul className="flex flex-wrap items-center justify-center space-y-2">
           {exercises.map((exercise, idx) => (
             <li
               key={exercise.id || idx}
-              className="p-2 bg-gray-50 rounded-md shadow-sm"
+              className="w-full p-2 bg-gray-50 rounded-md shadow-sm"
             >
               <p className="text-gray-800">
                 <strong>Nom :</strong> {exercise.exercise}
