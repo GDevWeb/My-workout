@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import WorkoutForm from "../components/WorkoutForm";
-import { AuthContext } from "../context/authContext";
-import { ExercisesContext } from "../context/exercisesContext";
+import { AuthContext } from "../context/AuthContext";
+import { ExercisesContext } from "../context/ExercisesContext";
 import { addWorkout, deleteWorkout } from "../services/workoutApi";
 
 const Dashboard = () => {

@@ -62,6 +62,69 @@
       ],
       "totalLoad": 2130,
       "totalDuration": 154
+    },
+    {
+      "id": "6a46",
+      "date": "2024-11-27",
+      "time": "10:31",
+      "exercises": [
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        }
+      ],
+      "totalLoad": 2130,
+      "totalDuration": 154
+    },
+    {
+      "id": "6a47",
+      "date": "2024-11-27",
+      "time": "10:31",
+      "exercises": [
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        }
+      ],
+      "totalLoad": 2130,
+      "totalDuration": 154
+    },
+    {
+      "id": "6a48",
+      "date": "2024-11-27",
+      "time": "10:31",
+      "exercises": [
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        }
+      ],
+      "totalLoad": 2130,
+      "totalDuration": 154
     }
   ]
 }

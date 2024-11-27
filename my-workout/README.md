@@ -70,7 +70,7 @@ L'application "Journal d'entraînement" est conçue pour permettre aux utilisate
 
 - **Contexte global pour les exercices** :
   - Gérer la récupération et la mise en cache des exercices (éviter des appels API répétitifs).
-  - Exemple : `ExercisesContext` pour partager les données entre plusieurs composants.
+  - ✅Exemple : `ExercisesContext` pour partager les données entre plusieurs composants.
 
 ---
 
