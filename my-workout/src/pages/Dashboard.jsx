@@ -11,15 +11,18 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!currentUser) {
-      navigate("/login"); // Redirection si pas authentifié
+      navigate("/login");
     }
 
     const fetchWorkouts = async () => {
       const data = await getWorkouts();
+      console.log("Données récupérées :", data);
       setWorkouts(data);
     };
     fetchWorkouts();
   }, [currentUser, navigate]);
+
+  console.log("workouts", workouts);
 
   const handleAddWorkout = async (workout) => {
     const newWorkout = await addWorkout(workout);
@@ -68,14 +71,18 @@ const Dashboard = () => {
                   </span>
                 </div>
                 <ul className="pl-4">
-                  {workout.exercises.map((ex, idx) => (
-                    <li key={idx} className="flex justify-between items-center">
-                      <span>
-                        <strong>{ex.exercise}</strong> - {ex.reps} reps à{" "}
-                        {ex.weight} kg, Pause : {ex.rest} sec
-                      </span>
-                    </li>
-                  ))}
+                  {workout.exercises &&
+                    workout.exercises.map((ex, idx) => (
+                      <li
+                        key={idx}
+                        className="flex justify-between items-center"
+                      >
+                        <span>
+                          <strong>{ex.exercise}</strong> - {ex.reps} reps à{" "}
+                          {ex.weight} kg, Pause : {ex.rest} sec
+                        </span>
+                      </li>
+                    ))}
                 </ul>
                 <button
                   onClick={() => handleDeleteWorkout(workout.id)}

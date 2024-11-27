@@ -9,6 +9,8 @@ const WORKOUTS_URL = "http://localhost:5000/workouts";
 export const getWorkouts = async () => {
   try {
     const response = await axios.get(WORKOUTS_URL);
+    console.log("from getWorkouts", response.data);
+
     return response.data;
   } catch (error) {
     console.error(

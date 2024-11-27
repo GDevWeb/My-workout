@@ -1,28 +1,28 @@
 {
   "exercises": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Push-Up",
       "bodyPart": "chest",
       "equipment": "body weight",
       "target": "pectorals"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Pull-Up",
       "bodyPart": "back",
       "equipment": "body weight",
       "target": "lats"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Squat",
       "bodyPart": "legs",
       "equipment": "body weight",
       "target": "quads"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Soulevé de Terre",
       "bodyPart": "legs",
       "equipment": "body weight",
@@ -31,30 +31,37 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Alice",
       "email": "alice@example.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Bob",
       "email": "bob@example.com"
     }
   ],
   "workouts": [
     {
-      "id": 1,
-      "userId": 1,
-      "exerciseId": 1,
-      "reps": 10,
-      "weight": 0
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "exerciseId": 2,
-      "reps": 8,
-      "weight": 0
+      "id": "6a45",
+      "date": "2024-11-27",
+      "time": "10:31",
+      "exercises": [
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        }
+      ],
+      "totalLoad": 2130,
+      "totalDuration": 154
     }
   ]
 }
