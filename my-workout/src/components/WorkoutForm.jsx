@@ -10,6 +10,7 @@ const WorkoutForm = ({ onSubmit }) => {
     weight: "",
     rest: "",
   });
+  const [title, setTitle] = useState("");
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [time, setTime] = useState(
     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
@@ -67,11 +68,16 @@ const WorkoutForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!title) {
+      alert("Veuillez entrer un titre pour votre séance.");
+      return;
+    }
     if (workoutExercises.length === 0) {
       alert("Ajoutez au moins un exercice.");
       return;
     }
     const workout = {
+      title,
       date,
       time,
       exercises: workoutExercises,
@@ -83,6 +89,7 @@ const WorkoutForm = ({ onSubmit }) => {
     onSubmit(workout);
     setWorkoutExercises([]);
     setManualDuration("");
+    setTitle("");
   };
 
   return (
@@ -91,6 +98,23 @@ const WorkoutForm = ({ onSubmit }) => {
         Reportez votre entraînement
       </h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div>
+          <label
+            htmlFor="title"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Titre de la séance
+          </label>
+          <input
+            type="text"
+            id="title"
+            placeholder="Nom de la séance"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="p-2 border border-gray-300 rounded-md w-full"
+            required
+          />
+        </div>
         <div className="flex gap-4">
           <div>
             <label
@@ -157,7 +181,7 @@ const WorkoutForm = ({ onSubmit }) => {
                 onChange={(e) =>
                   setNewExercise((prev) => ({ ...prev, reps: e.target.value }))
                 }
-                className="p-2 border border-gray-300 rounded-md w-1/2"
+                className="p-2 border border-gray-300 rounded-md w-1/3"
               />
               <input
                 type="number"
@@ -169,11 +193,11 @@ const WorkoutForm = ({ onSubmit }) => {
                     weight: e.target.value,
                   }))
                 }
-                className="p-2 border border-gray-300 rounded-md w-1/2"
+                className="p-2 border border-gray-300 rounded-md w-1/3"
               />
               <input
                 type="time"
-                placeholder="tps pause"
+                placeholder="Pause (sec)"
                 value={newExercise.rest}
                 onChange={(e) =>
                   setNewExercise((prev) => ({
@@ -181,36 +205,9 @@ const WorkoutForm = ({ onSubmit }) => {
                     rest: e.target.value,
                   }))
                 }
-                className="p-2 border border-gray-300 rounded-md w-1/2"
+                className="p-2 border border-gray-300 rounded-md w-1/3"
               />
             </div>
-            <div className="bg-gray-50 p-4 rounded-md mt-4">
-              <h2 className="text-lg font-medium text-gray-700 mb-2">
-                Durée totale
-              </h2>
-              <p className="text-gray-600">
-                {Math.floor(calculateTotalDuration() / 60)} minutes et{" "}
-                {calculateTotalDuration() % 60} secondes
-              </p>
-
-              <label
-                htmlFor="manualDuration"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Durée totale (en minutes, optionnel)
-              </label>
-            </div>
-            <div>
-              <input
-                type="number"
-                id="manualDuration"
-                placeholder="Durée totale en minutes"
-                value={manualDuration}
-                onChange={(e) => setManualDuration(e.target.value)}
-                className="p-2 border border-gray-300 rounded-md w-full mt-2"
-              />
-            </div>
-
             <button
               type="button"
               onClick={handleAddExercise}
@@ -220,6 +217,7 @@ const WorkoutForm = ({ onSubmit }) => {
             </button>
           </div>
         )}
+
         {workoutExercises.length > 0 && (
           <div className="bg-gray-50 p-4 rounded-md mt-4">
             <h2 className="text-lg font-medium text-gray-700 mb-2">
@@ -229,7 +227,8 @@ const WorkoutForm = ({ onSubmit }) => {
               {workoutExercises.map((ex, idx) => (
                 <li key={idx} className="flex justify-between items-center">
                   <span>
-                    {ex.exercise} - {ex.reps} reps à {ex.weight} kg + {ex.rest}
+                    {ex.exercise} - {ex.reps} reps à {ex.weight} kg, Pause :{" "}
+                    {ex.rest} sec
                   </span>
                   <button
                     onClick={() => handleRemoveExercise(idx)}

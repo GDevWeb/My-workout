@@ -55,6 +55,7 @@ const Dashboard = () => {
                 className="p-4 bg-gray-100 shadow rounded-md"
               >
                 <div className="mb-2">
+                  <h1>{workout.title}</h1>
                   <span className="text-sm text-gray-500">
                     {workout.date} à {workout.time}
                   </span>

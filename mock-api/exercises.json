@@ -43,81 +43,47 @@
   ],
   "workouts": [
     {
-      "id": "6a45",
+      "id": "99d0",
+      "title": "test",
       "date": "2024-11-27",
-      "time": "10:31",
+      "time": "16:20",
       "exercises": [
         {
-          "exercise": "Squat",
+          "exercise": "Push-Up",
           "reps": "15",
           "weight": "71",
-          "rest": "02:00"
+          "rest": "02"
         },
         {
-          "exercise": "Squat",
+          "exercise": "Push-Up",
           "reps": "15",
           "weight": "71",
-          "rest": "02:00"
+          "rest": "02"
         }
       ],
       "totalLoad": 2130,
-      "totalDuration": 154
+      "totalDuration": 390
     },
     {
-      "id": "6a46",
+      "id": "a042",
+      "title": "test2",
       "date": "2024-11-27",
-      "time": "10:31",
+      "time": "16:25",
       "exercises": [
         {
-          "exercise": "Squat",
+          "exercise": "Push-Up",
           "reps": "15",
           "weight": "71",
           "rest": "02:00"
         },
         {
-          "exercise": "Squat",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        }
-      ],
-      "totalLoad": 2130,
-      "totalDuration": 154
-    },
-    {
-      "id": "6a47",
-      "date": "2024-11-27",
-      "time": "10:31",
-      "exercises": [
-        {
-          "exercise": "Squat",
+          "exercise": "Pull-Up",
           "reps": "15",
           "weight": "71",
           "rest": "02:00"
         },
         {
-          "exercise": "Squat",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        }
-      ],
-      "totalLoad": 2130,
-      "totalDuration": 154
-    },
-    {
-      "id": "6a48",
-      "date": "2024-11-27",
-      "time": "10:31",
-      "exercises": [
-        {
-          "exercise": "Squat",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Squat",
+          "exercise": "Pull-Up",
           "reps": "15",
           "weight": "71",
           "rest": "02:00"

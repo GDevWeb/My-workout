@@ -30,6 +30,7 @@ L'application "Journal d'entraînement" est conçue pour permettre aux utilisate
   - Boutons d'action clairs et accessibles.
 - **Tableau de bord** :
   - Liste des workouts avec :
+    - Titre.
     - Date et heure.
     - Charge totale.
     - Durée totale.
@@ -69,7 +70,7 @@ L'application "Journal d'entraînement" est conçue pour permettre aux utilisate
 ### **3. Mise en place d'un contexte**
 
 - **Contexte global pour les exercices** :
-  - Gérer la récupération et la mise en cache des exercices (éviter des appels API répétitifs).
+  - ✅Gérer la récupération et la mise en cache des exercices (éviter des appels API répétitifs).
   - ✅Exemple : `ExercisesContext` pour partager les données entre plusieurs composants.
 
 ---
@@ -86,8 +87,8 @@ L'application "Journal d'entraînement" est conçue pour permettre aux utilisate
 ### **2. Page d'accueil dynamique**
 
 - **Pour les utilisateurs authentifiés** :
-  - Afficher les X derniers entraînements (ex. : les 5 derniers).
-  - Fournir des statistiques clés (charge totale, durée cumulée).
+  - ✅Afficher les X derniers entraînements (ex. : les 5 derniers).
+  - ✅Fournir des statistiques clés (charge totale, durée cumulée).
 - **Pour les visiteurs non authentifiés** :
   - Afficher un message promotionnel ou un aperçu des fonctionnalités de l'application.
 
