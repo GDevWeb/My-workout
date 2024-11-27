@@ -12,29 +12,24 @@ export const parseRestTime = (rest) => {
       .split(":")
       .map((part) => parseInt(part, 10));
     const result = minutes * 60 + (seconds || 0);
-    console.log("utils - parseRestTime", result);
     return result;
   }
   return parseInt(rest, 10) || 0;
 };
 
-// Calcul de la durée totale en secondes
+// Calcul de la Durée totale en secondes:
 export const calculateTotalDuration = async (array, timePerRep = 5) => {
   return array.reduce((total, ex) => {
     const exerciseDuration = ex.reps * timePerRep;
     const restDuration = parseRestTime(ex.rest);
-    console.log("utils - restDuration", restDuration);
     const result = total + exerciseDuration + restDuration;
-    console.log("utils - calculateTotalDuration", result);
     return result;
   }, 0);
 };
 
-// Charge total :
+// Calcul de la Charge total par séance:
 export const calculateTotalLoad = (array) => {
   if (!Array.isArray(array) || array.length === 0) return 0;
-  console.log("utils - calculateTotalLoad", array);
   const result = array.reduce((total, ex) => total + ex.reps * ex.weight, 0);
-  console.log("utils - calculateTotalLoad", result);
   return result;
 };

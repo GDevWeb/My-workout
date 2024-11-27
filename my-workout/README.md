@@ -100,27 +100,31 @@ L'application "Journal d'entraînement" est conçue pour permettre aux utilisate
 src/
 ├── assets/                # Fichiers statiques (CSS, images)
 ├── components/            # Composants réutilisables
+│   ├── ✅CardExercise.jsx
+│   ├── ✅Header.jsx
+│   ├── ✅Layout.jsx
+│   ├── ✅NavBar.jsx
 │   ├── Button.jsx
 │   ├── Input.jsx
-│   └── WorkoutForm.jsx
+│   └── ✅WorkoutForm.jsx
 ├── context/               # Contexte global
-│   ├── AuthContext.jsx
-│   └── ExercisesContext.jsx
+│   ├── ✅AuthContext.jsx
+│   └── ✅ExercisesContext.jsx
 ├── hooks/                 # Hooks personnalisés
 │   ├── useFetchExercises.js
 │   └── useWorkoutForm.js
 ├── pages/                 # Pages principales
-│   ├── Dashboard.jsx
-│   ├── Login.jsx
-│   ├── Signup.jsx
-│   └── Home.jsx
+│   ├── ✅Dashboard.jsx
+│   ├── ✅Login.jsx
+│   ├── ✅Signup.jsx
+│   └── ✅Home.jsx
 ├── services/              # Fonctions d'interaction API
-│   ├── exerciseApi.js
-│   └── workoutApi.js
+│   ├── ✅exerciseApi.js
+│   └── ✅workoutApi.js
 ├── utils/                 # Fonctions utilitaires
-│   ├── calculate.js       # Calculs (charge, durée, etc.)
+│   ├── ✅calculate.js       # Calculs (charge, durée, etc.)
 │   └── formatDate.js      # Formatage des dates/heures
-└── App.jsx                # Composant principal
+└── ✅Home.jsx                # Composant principal
 ```
 
 ---
@@ -169,5 +173,5 @@ json-server --watch db.json --port 5000
 
 ### Debug
 
-- revoir calcul de la durée totale
+- ✅revoir calcul de la durée totale : ❗le 211124 - à tester
 - ✅ajouter un .env pour api firebase

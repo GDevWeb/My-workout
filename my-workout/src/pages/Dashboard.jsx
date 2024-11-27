@@ -4,11 +4,11 @@ import WorkoutForm from "../components/WorkoutForm";
 import { AuthContext } from "../context/AuthContext";
 import { ExercisesContext } from "../context/ExercisesContext";
 import { addWorkout, deleteWorkout } from "../services/workoutApi";
+import { formatDate } from "../utils/formatDate";
 
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
   const { workouts, loading, fetchWorkouts } = useContext(ExercisesContext);
-  // Mise en place du context pour récupérer mes derniers workouts
   const navigate = useNavigate();
 
   // Redirection si non authentifié
@@ -55,9 +55,12 @@ const Dashboard = () => {
                 className="p-4 bg-gray-100 shadow rounded-md"
               >
                 <div className="mb-2">
-                  <h1>{workout.title}</h1>
-                  <span className="text-sm text-gray-500">
-                    {workout.date} à {workout.time}
+                  <h1 className="text-xl font-extrabold text-center">
+                    {workout.title}
+                  </h1>
+                  <span className="text-sm font-bold text-gray-500">
+                    {formatDate(workout.date)} à {workout.time}
+                    {console.log(workout.date)}
                   </span>
                   <span className="block text-gray-700 font-semibold">
                     Charge totale : {workout.totalLoad} kg
@@ -80,12 +83,14 @@ const Dashboard = () => {
                       </li>
                     ))}
                 </ul>
-                <button
-                  onClick={() => handleDeleteWorkout(workout.id)}
-                  className="bg-red-500 text-white px-2 py-2 rounded-md hover:bg-red-600 transition"
-                >
-                  Supprimer
-                </button>
+                <div className="w-full flex justify-end items-end">
+                  <button
+                    onClick={() => handleDeleteWorkout(workout.id)}
+                    className="bg-red-500 text-white px-2 py-2 rounded-md hover:bg-red-600 transition"
+                  >
+                    Supprimer
+                  </button>
+                </div>
               </li>
             ))}
           </ul>

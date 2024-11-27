@@ -3,8 +3,8 @@ import { getExercises } from "../services/exerciseApi";
 import { calculateTotalDuration, calculateTotalLoad } from "../utils/calculate";
 
 const WorkoutForm = ({ onSubmit }) => {
-  const [exercises, setExercises] = useState([]); // Liste des exercices disponibles
-  const [workoutExercises, setWorkoutExercises] = useState([]); // Liste des exercices ajoutés au workout
+  const [exercises, setExercises] = useState([]);
+  const [workoutExercises, setWorkoutExercises] = useState([]);
   const [newExercise, setNewExercise] = useState({
     exercise: "",
     reps: "",
@@ -17,7 +17,7 @@ const WorkoutForm = ({ onSubmit }) => {
     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
   );
   const [loading, setLoading] = useState(true);
-  const [manualDuration, setManualDuration] = useState("");
+  // const [manualDuration, setManualDuration] = useState("");
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -75,11 +75,10 @@ const WorkoutForm = ({ onSubmit }) => {
       totalLoad: totalLoad,
       totalDuration: totalDuration,
     };
-    console.log("From object workout into WorkoutForm", workout.totalDuration);
 
     onSubmit(workout);
     setWorkoutExercises([]);
-    setManualDuration("");
+    // setManualDuration("");
     setTitle("");
   };
 

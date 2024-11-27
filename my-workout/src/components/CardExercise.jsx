@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { formatDate } from "../utils/formatDate";
 
 const CardExercise = ({
   id,
@@ -14,10 +15,10 @@ const CardExercise = ({
       key={id}
     >
       <div id="header" className="border-b pb-2">
-        <h1 className="text-lg font-bold text-gray-800">
+        <h1 className="text-lg font-bold text-center text-gray-800">
           {title === "" ? "Séance d'entraînement" : title}
         </h1>
-        <h2 className="text-sm text-gray-600">Date : {date}</h2>
+        <h2 className="text-sm font-bold text-gray-500">{formatDate(date)}</h2>
       </div>
       <main>
         <p className="font-semibold text-gray-700 mb-2">Exercices :</p>
