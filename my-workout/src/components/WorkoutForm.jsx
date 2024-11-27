@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getExercises } from "../services/exerciseApi";
+import { calculateTotalDuration, calculateTotalLoad } from "../utils/calculate";
 
 const WorkoutForm = ({ onSubmit }) => {
   const [exercises, setExercises] = useState([]); // Liste des exercices disponibles
@@ -32,22 +33,6 @@ const WorkoutForm = ({ onSubmit }) => {
     fetchExercises();
   }, []);
 
-  const calculateTotalDuration = () => {
-    const timePerRep = 5; // Estimé : 5 secondes par rép
-    return workoutExercises.reduce((total, ex) => {
-      const exerciseDuration = ex.reps * timePerRep;
-      const restDuration = parseInt(ex.rest, 10) || 0;
-      return total + exerciseDuration + restDuration;
-    }, 0); // En secondes
-  };
-
-  const calculateTotalLoad = () => {
-    return workoutExercises.reduce(
-      (total, ex) => total + ex.reps * ex.weight,
-      0
-    );
-  };
-
   const handleAddExercise = () => {
     if (
       !newExercise.exercise ||
@@ -59,6 +44,8 @@ const WorkoutForm = ({ onSubmit }) => {
       return;
     }
     setWorkoutExercises((prev) => [...prev, newExercise]);
+    console.log(newExercise.rest);
+
     setNewExercise({ exercise: "", reps: "", weight: "", rest: "" });
   };
 
@@ -66,7 +53,7 @@ const WorkoutForm = ({ onSubmit }) => {
     setWorkoutExercises((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title) {
       alert("Veuillez entrer un titre pour votre séance.");
@@ -76,16 +63,20 @@ const WorkoutForm = ({ onSubmit }) => {
       alert("Ajoutez au moins un exercice.");
       return;
     }
+
+    const totalDuration = await calculateTotalDuration(workoutExercises, 5);
+    const totalLoad = await calculateTotalLoad(workoutExercises);
+
     const workout = {
       title,
       date,
       time,
       exercises: workoutExercises,
-      totalLoad: calculateTotalLoad(), // Ajout de la charge totale
-      totalDuration: manualDuration
-        ? parseInt(manualDuration, 10) * 60
-        : calculateTotalDuration(), // Priorité à la durée saisie
+      totalLoad: totalLoad,
+      totalDuration: totalDuration,
     };
+    console.log("From object workout into WorkoutForm", workout.totalDuration);
+
     onSubmit(workout);
     setWorkoutExercises([]);
     setManualDuration("");
@@ -228,7 +219,7 @@ const WorkoutForm = ({ onSubmit }) => {
                 <li key={idx} className="flex justify-between items-center">
                   <span>
                     {ex.exercise} - {ex.reps} reps à {ex.weight} kg, Pause :{" "}
-                    {ex.rest} sec
+                    {ex.rest} min
                   </span>
                   <button
                     onClick={() => handleRemoveExercise(idx)}

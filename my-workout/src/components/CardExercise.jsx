@@ -56,12 +56,12 @@ const CardExercise = ({
 export default CardExercise;
 
 CardExercise.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   exercises: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      id: PropTypes.oneOfType([PropTypes.string]),
       exercise: PropTypes.string.isRequired,
       reps: PropTypes.number.isRequired,
       weight: PropTypes.number.isRequired,
