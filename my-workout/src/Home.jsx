@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext";
 
-function App() {
+function Home() {
   // 1.state
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <div className="app min-h-screen bg-gray-100 flex flex-col">
+    <div className="Home min-h-screen bg-gray-100 flex flex-col">
       <main className="flex-grow container mx-auto p-6 text-center">
         <h2 className="text-3xl font-semibold text-gray-800 mb-4">
           Suivez vos progrès et atteignez vos objectifs !
@@ -25,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

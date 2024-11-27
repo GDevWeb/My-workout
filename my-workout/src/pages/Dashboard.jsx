@@ -1,39 +1,32 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import WorkoutForm from "../components/WorkoutForm";
 import { AuthContext } from "../context/authContext";
-import { addWorkout, deleteWorkout, getWorkouts } from "../services/workoutApi";
+import { ExercisesContext } from "../context/exercisesContext";
+import { addWorkout, deleteWorkout } from "../services/workoutApi";
 
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
+  const { workouts, loading, fetchWorkouts } = useContext(ExercisesContext);
+  // Mise en place du context pour récupérer mes derniers workouts
   const navigate = useNavigate();
-  const [workouts, setWorkouts] = useState([]);
 
-  useEffect(() => {
-    if (!currentUser) {
-      navigate("/login");
-    }
-
-    const fetchWorkouts = async () => {
-      const data = await getWorkouts();
-      console.log("Données récupérées :", data);
-      setWorkouts(data);
-    };
-    fetchWorkouts();
-  }, [currentUser, navigate]);
-
-  console.log("workouts", workouts);
+  // Redirection si non authentifié
+  if (!currentUser) {
+    navigate("/login");
+    return null;
+  }
 
   const handleAddWorkout = async (workout) => {
     const newWorkout = await addWorkout(workout);
     if (newWorkout) {
-      setWorkouts((prev) => [...prev, newWorkout]);
+      await fetchWorkouts();
     }
   };
 
   const handleDeleteWorkout = async (id) => {
     await deleteWorkout(id);
-    setWorkouts((prev) => prev.filter((workout) => workout.id !== id));
+    await fetchWorkouts();
   };
 
   const formatDuration = (seconds) => {
@@ -42,7 +35,7 @@ const Dashboard = () => {
     return `${minutes} minutes et ${remainingSeconds} secondes`;
   };
 
-  return currentUser ? (
+  return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">
         Bienvenue, {currentUser.email}
@@ -52,7 +45,9 @@ const Dashboard = () => {
       </h2>
       <WorkoutForm onSubmit={handleAddWorkout} />
       <div className="mt-8">
-        {workouts.length > 0 ? (
+        {loading ? (
+          <p className="text-gray-500">Chargement des données...</p>
+        ) : workouts.length > 0 ? (
           <ul className="space-y-4">
             {workouts.map((workout) => (
               <li
@@ -98,12 +93,8 @@ const Dashboard = () => {
             Aucun entraînement enregistré pour le moment.
           </p>
         )}
-      </div>{" "}
+      </div>
     </div>
-  ) : (
-    <h2 className="text-center text-red-500 mt-10">
-      Vous devez être authentifié pour accéder à cette page !
-    </h2>
   );
 };
 
