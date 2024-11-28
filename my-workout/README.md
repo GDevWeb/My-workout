@@ -90,7 +90,7 @@ L'application "Journal d'entraînement" est conçue pour permettre aux utilisate
   - ✅Afficher les X derniers entraînements (ex. : les 5 derniers).
   - ✅Fournir des statistiques clés (charge totale, durée cumulée).
 - **Pour les visiteurs non authentifiés** :
-  - Afficher un message promotionnel ou un aperçu des fonctionnalités de l'application.
+  - ✅Afficher un message promotionnel ou un aperçu des fonctionnalités de l'application.
 
 ---
 
@@ -173,5 +173,32 @@ json-server --watch db.json --port 5000
 
 ### Debug
 
-- ✅revoir calcul de la durée totale : ❗le 211124 - à tester
-- ✅ajouter un .env pour api firebase
+---
+
+### Info pour tester
+
+#### Authentification via firebase
+
+Bonjour Ali 😀, je sais que je ne devrais pas te donner les infos suivantes mais c'est + simple
+
+- créer un `.env` ou un `.env.local` à la racine du projet
+
+```
+# FireBase
+VITE_FIREBASE_API_KEY=AIzaSyDQgmISGsEYLrKKMWbLq-iVEuUEMYA6KA4
+VITE_FIREBASE_AUTH_DOMAIN=my-workout-c79c2.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=my-workout-c79c2
+VITE_FIREBASE_STORAGE_BUCKET=my-workout-c79c2.firebasestorage.app
+VITE_FIREBASE_MESSAGING_SENDER_ID=1088084142844
+VITE_FIREBASE_APP_ID=1:1088084142844:web:dd06d3566072aacef30579
+VITE_MEASUREMENT_ID=G-89C6GEZVDR
+
+# Spoonacular
+VITE_SPOONACULAR_API_KEY=`ta_clé_api`
+
+```
+
+#### Spoonacular
+
+1. créer une boite mail temporaire [tempMail](https://temp-mail.org/fr/view/6748a417a8c45a001b1307ff)
+2. créer un compte sur [spoonacular](https://spoonacular.com/)
