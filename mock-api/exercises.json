@@ -71,12 +71,6 @@
       "totalDuration": 585
     },
     {
-<<<<<<< HEAD
-      "id": "343d",
-      "title": "test",
-      "date": "2024-11-27",
-      "time": "22:20",
-=======
       "id": "1c2a",
       "title": "test",
       "date": "2024-11-27",
@@ -103,7 +97,6 @@
       "title": "Test de jeudi 281124",
       "date": "2024-11-28",
       "time": "09:05",
->>>>>>> 562bcdb59a0c4f69136d54235d0495985dcb8564
       "exercises": [
         {
           "exercise": "Squat",
@@ -130,10 +123,6 @@
           "rest": "02:00"
         },
         {
-<<<<<<< HEAD
-          "exercise": "Squat",
-          "reps": "20",
-=======
           "exercise": "Pull-Up",
           "reps": "15",
           "weight": "71",
@@ -148,15 +137,10 @@
         {
           "exercise": "Pull-Up",
           "reps": "15",
->>>>>>> 562bcdb59a0c4f69136d54235d0495985dcb8564
           "weight": "71",
           "rest": "02:00"
         }
       ],
-<<<<<<< HEAD
-      "totalLoad": 7100,
-      "totalDuration": 1100
-=======
       "totalLoad": 4260,
       "totalDuration": 780
     },
@@ -193,7 +177,6 @@
       ],
       "totalLoad": 4260,
       "totalDuration": 780
->>>>>>> 562bcdb59a0c4f69136d54235d0495985dcb8564
     }
   ]
 }
