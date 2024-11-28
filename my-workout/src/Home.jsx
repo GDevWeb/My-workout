@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import CardExercise from "./components/CardExercise";
+import HomeMessagePromo from "./components/HomeMessagePromo";
 import Recipes from "./components/Recipes";
 import { AuthContext } from "./context/AuthContext";
 import { ExercisesContext } from "./context/ExercisesContext";
@@ -35,10 +36,7 @@ function Home() {
           Suivez vos progrès et atteignez vos objectifs !
         </h2>
         {!currentUser ? (
-          <p className="text-gray-600 text-center">
-            Connectez-vous pour enregistrer vos entraînements et visualiser vos
-            progrès au fil du temps.
-          </p>
+          <HomeMessagePromo />
         ) : (
           <>
             <p className="text-lg text-gray-700 mb-4">
