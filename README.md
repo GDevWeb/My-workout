@@ -61,8 +61,8 @@ L'application "Journal d'entraînement" est conçue pour permettre aux utilisate
 ### **2. Centralisation des fonctions**
 
 - Créer des **hooks personnalisés** pour des fonctionnalités spécifiques :
-  - ✅`useFetchExercises` : Gérer la récupération des exercices via un contexte global.
-  - ✅`useWorkoutForm` : Encapsuler la logique de gestion des entrées dans le formulaire.
+  - `useFetchExercises` : Gérer la récupération des exercices via un contexte global.
+  - `useWorkoutForm` : Encapsuler la logique de gestion des entrées dans le formulaire.
 - Déplacer les fonctions utilitaires dans des fichiers dédiés :
   - ✅Formatage des dates/heures.
   - ✅Calculs (durée totale, charge totale).
@@ -112,7 +112,7 @@ src/
 │   └── ✅ExercisesContext.jsx
 ├── hooks/                 # Hooks personnalisés
 │   ├── useFetchExercises.js
-│   └── ✅useWorkoutForm.js
+│   └── useWorkoutForm.js
 ├── pages/                 # Pages principales
 │   ├── ✅Dashboard.jsx
 │   ├── ✅Login.jsx
@@ -135,7 +135,7 @@ src/
 
 - Découper et refactoriser le code (composants, hooks, contexte).
 - Ajouter la gestion des exercices personnalisés.
-- ✅Dynamiser la page d'accueil selon l'état de l'utilisateur. (limitation de call api "Spoonacular")
+- Dynamiser la page d'accueil selon l'état de l'utilisateur.
 
 ### **Moyen terme :**
 

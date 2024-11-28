@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import CardExercise from "./components/CardExercise";
+import HomeMessagePromo from "./components/HomeMessagePromo";
+import Recipes from "./components/Recipes";
 import { AuthContext } from "./context/AuthContext";
 import { ExercisesContext } from "./context/ExercisesContext";
 
@@ -28,16 +30,13 @@ function Home() {
   });
 
   return (
-    <div className="Home min-h-screen bg-gray-100 flex flex-col">
+    <div className="Home min-h-screen bg-gray-100  flex flex-col">
       <main className="flex-grow container mx-auto p-6">
         <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
           Suivez vos progrès et atteignez vos objectifs !
         </h2>
         {!currentUser ? (
-          <p className="text-gray-600 text-center">
-            Connectez-vous pour enregistrer vos entraînements et visualiser vos
-            progrès au fil du temps.
-          </p>
+          <HomeMessagePromo />
         ) : (
           <>
             <p className="text-lg text-gray-700 mb-4">
@@ -50,6 +49,7 @@ function Home() {
             <div className="workouts-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {renderLastWorkouts}
             </div>
+            <Recipes />
           </>
         )}
       </main>
