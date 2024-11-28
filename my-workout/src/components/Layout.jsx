@@ -1,12 +1,15 @@
-import Header from "./Header";
+import { Outlet } from "react-router-dom";
+import Header from "../components/Header";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
+    <div>
       <Header />
-      <main className="flex-grow container mx-auto p-6">{children}</main>
-      <footer className="bg-blue-500 text-white text-center py-4">
-        © 2024 Journal d&apos;entraînement. Tous droits réservés.
+      <main className="p-6">
+        <Outlet />
+      </main>
+      <footer className="bg-gray-200 text-center p-4">
+        <p>© 2024 Mon Application</p>
       </footer>
     </div>
   );
