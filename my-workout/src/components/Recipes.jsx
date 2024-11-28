@@ -7,11 +7,19 @@ const Recipes = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("diet");
 
+  //api KEYS
+  const spoonacularAPIKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
+
+  // 2.Functions :
+  const handleSearchQuery = (e) => {
+    console.log("handleSearchQuery");
+  };
+
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&apiKey=cdd56df4dbd843a5bde3cf26d302f6bb`
+          `https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&apiKey=${spoonacularAPIKey}`
         );
 
         if (!response.ok) {
