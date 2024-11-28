@@ -43,56 +43,6 @@
   ],
   "workouts": [
     {
-      "id": "ecd9",
-      "title": "test",
-      "date": "2024-11-27",
-      "time": "21:15",
-      "exercises": [
-        {
-          "exercise": "Push-Up",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Squat",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Push-Up",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        }
-      ],
-      "totalLoad": 3195,
-      "totalDuration": 585
-    },
-    {
-      "id": "1c2a",
-      "title": "test",
-      "date": "2024-11-27",
-      "time": "16:54",
-      "exercises": [
-        {
-          "exercise": "Push-Up",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Squat",
-          "reps": "15",
-          "weight": "71",
-          "rest": "03:00"
-        }
-      ],
-      "totalLoad": 2130,
-      "totalDuration": 155
-    },
-    {
       "id": "7156",
       "title": "Test de jeudi 281124",
       "date": "2024-11-28",
