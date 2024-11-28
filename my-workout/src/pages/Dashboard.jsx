@@ -49,7 +49,7 @@ const Dashboard = () => {
           <p className="text-gray-500">Chargement des données...</p>
         ) : workouts.length > 0 ? (
           <ul className="space-y-4">
-            {workouts.map((workout) => (
+            {workouts.slice(0, 1).map((workout) => (
               <li
                 key={workout.id}
                 className="p-4 bg-gray-100 shadow rounded-md"
@@ -60,7 +60,6 @@ const Dashboard = () => {
                   </h1>
                   <span className="text-sm font-bold text-gray-500">
                     {formatDate(workout.date)} à {workout.time}
-                    {console.log(workout.date)}
                   </span>
                   <span className="block text-gray-700 font-semibold">
                     Charge totale : {workout.totalLoad} kg

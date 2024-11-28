@@ -1,46 +1,76 @@
 import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 const NavBar = () => {
-  // 1.state
+  // 1. State :
   const { currentUser, logout } = useContext(AuthContext);
-  // 2.functions
 
-  // 3.render :
+  // 3. Render :
   return (
     <nav>
       <ul className="flex gap-4">
         <li>
-          <a href="/" className="hover:text-blue-300 transition">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-white-500 font-bold"
+                : "hover:text-white-300 transition"
+            }
+          >
             Accueil
-          </a>
+          </NavLink>
         </li>
 
-        {!currentUser ? (
-          <li>
-            <a href="/login" className="hover:text-blue-300 transition">
+        <li>
+          {!currentUser ? (
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white-500 font-bold"
+                  : "hover:text-white-300 transition"
+              }
+            >
               Connexion
-            </a>
-          </li>
-        ) : (
-          <li onClick={logout}>
-            <a href="/" className="hover:text-blue-300 transition">
+            </NavLink>
+          ) : (
+            <button
+              onClick={logout}
+              className="hover:text-white-300 transition text-red-500"
+            >
               Déconnexion
-            </a>
+            </button>
+          )}
+        </li>
+
+        {!currentUser && (
+          <li>
+            <NavLink
+              to="/signup"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white-500 font-bold"
+                  : "hover:text-white-300 transition"
+              }
+            >
+              Inscription
+            </NavLink>
           </li>
         )}
 
-        {!currentUser ? (
-          <li>
-            <a href="/signup" className="hover:text-blue-300 transition">
-              Inscription
-            </a>
-          </li>
-        ) : null}
         <li>
-          <a href="/dashboard" className="hover:text-blue-300 transition">
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive
+                ? "text-white-500 font-bold"
+                : "hover:text-white-300 transition"
+            }
+          >
             Dashboard
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

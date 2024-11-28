@@ -8,8 +8,8 @@ const Layout = () => {
       <main className="p-6">
         <Outlet />
       </main>
-      <footer className="bg-gray-200 text-center p-4">
-        <p>© 2024 Mon Application</p>
+      <footer className="bg-blue-500 text-center text-white py-4 shadow-md">
+        <p>© 2024 Mon Journal d&apos;entraînement - Tous droits réservés</p>
       </footer>
     </div>
   );

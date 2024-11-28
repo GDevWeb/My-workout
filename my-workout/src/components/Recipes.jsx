@@ -40,7 +40,7 @@ const Recipes = () => {
         }
 
         const data = await response.json();
-        setRecipes(data.results || []);
+        setRecipes(data.results.slice(0, 8) || []);
       } catch (error) {
         console.error("Erreur lors de la récupération des données :", error);
       } finally {
@@ -96,7 +96,7 @@ const Recipes = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           initial="hidden"
           animate="visible"
-          transition={{ staggerChildren: 0.1 }} // Apparition en cascade
+          transition={{ staggerChildren: 0.1 }}
         >
           {recipes.map((recipe) => (
             <motion.div key={recipe.id} variants={cardVariants}>
