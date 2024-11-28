@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const CardRecipe = ({ id, title, image }) => {
   return (
     <div
-      className="card bg-white shadow-lg rounded-lg p-6 flex flex-col gap-4 transition hover:shadow-xl hover:-translate-y-1"
+      className="card min-h-[400px] bg-white shadow-lg rounded-lg p-6 flex flex-col gap-4 transition hover:shadow-xl hover:-translate-y-1"
       key={id}
     >
       <header className="border-b pb-4">

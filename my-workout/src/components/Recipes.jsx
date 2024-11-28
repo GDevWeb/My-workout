@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import CardRecipe from "./CardRecipe";
 
@@ -6,36 +7,54 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("diet");
-
-  // API Key
   const spoonacularAPIKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
 
-  // 2. Functions :
   const handleSearchQuery = (filter) => {
     setActiveFilter(filter);
+    setLoading(true);
   };
 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const baseUrl = `https://api.spoonacular.com/recipes/complexSearch`;
-        const queryParams = `?query=${activeFilter}&apiKey=${spoonacularAPIKey}`;
-        const response = await fetch(baseUrl + queryParams);
+
+        const params = new URLSearchParams({
+          apiKey: spoonacularAPIKey,
+        });
+
+        // Ajoutez les filtres dynamiquement
+        if (activeFilter === "diet") {
+          params.append("diet", "vegetarian"); // Exemple : végétarien
+        } else if (activeFilter === "maxProtein") {
+          params.append("maxProtein", 50); // Exemple : max 50g protéines
+        } else if (activeFilter === "maxCarbs") {
+          params.append("maxCarbs", 30); // Exemple : max 30g glucides
+        }
+
+        const response = await fetch(`${baseUrl}?${params.toString()}`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
-        setRecipes(data.results || []);
-        setLoading(false);
+        setRecipes(data.results || []); // Mettez à jour les recettes
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Erreur lors de la récupération des données :", error);
+      } finally {
         setLoading(false);
       }
     };
+
     fetchRecipes();
   }, [activeFilter]);
+
+  //effets d'apparition
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
     <div className="mt-10">
@@ -61,26 +80,33 @@ const Recipes = () => {
             }`}
           >
             {filter === "diet"
-              ? "Diet"
+              ? "Régime (Végétarien)"
               : filter === "maxProtein"
               ? "Max Protéines"
               : "Max Glucides"}
           </button>
         ))}
       </div>
+
       {loading ? (
         <p className="text-center text-gray-600">Chargement...</p>
       ) : recipes.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          animate="visible"
+          transition={{ staggerChildren: 0.1 }} // Apparition en cascade
+        >
           {recipes.map((recipe) => (
-            <CardRecipe
-              key={recipe.id}
-              id={recipe.id}
-              title={recipe.title}
-              image={recipe.image}
-            />
+            <motion.div key={recipe.id} variants={cardVariants}>
+              <CardRecipe
+                id={recipe.id}
+                title={recipe.title}
+                image={recipe.image}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       ) : (
         <p className="text-center text-gray-600">Aucune recette trouvée.</p>
       )}

@@ -11,7 +11,7 @@ const CardExercise = ({
 }) => {
   return (
     <div
-      className="card bg-white shadow-md rounded-lg p-4 flex flex-col gap-4 transition hover:bg-blue-50"
+      className="card max-h-[400px] overflow-auto bg-white shadow-md rounded-lg p-4 flex flex-col gap-4 transition hover:bg-blue-50"
       key={id}
     >
       <div id="header" className="border-b pb-2">
