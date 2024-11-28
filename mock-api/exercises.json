@@ -43,54 +43,72 @@
   ],
   "workouts": [
     {
-      "id": "99d0",
+      "id": "ecd9",
       "title": "test",
       "date": "2024-11-27",
-      "time": "16:20",
+      "time": "21:15",
       "exercises": [
         {
           "exercise": "Push-Up",
           "reps": "15",
           "weight": "71",
-          "rest": "02"
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
         },
         {
           "exercise": "Push-Up",
           "reps": "15",
           "weight": "71",
-          "rest": "02"
+          "rest": "02:00"
         }
       ],
-      "totalLoad": 2130,
-      "totalDuration": 390
+      "totalLoad": 3195,
+      "totalDuration": 585
     },
     {
-      "id": "a042",
-      "title": "test2",
+      "id": "343d",
+      "title": "test",
       "date": "2024-11-27",
-      "time": "16:25",
+      "time": "22:20",
       "exercises": [
         {
+          "exercise": "Squat",
+          "reps": "20",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "20",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Pull-Up",
+          "reps": "20",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
           "exercise": "Push-Up",
-          "reps": "15",
+          "reps": "20",
           "weight": "71",
           "rest": "02:00"
         },
         {
-          "exercise": "Pull-Up",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Pull-Up",
-          "reps": "15",
+          "exercise": "Squat",
+          "reps": "20",
           "weight": "71",
           "rest": "02:00"
         }
       ],
-      "totalLoad": 2130,
-      "totalDuration": 154
+      "totalLoad": 7100,
+      "totalDuration": 1100
     }
   ]
 }
