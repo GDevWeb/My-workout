@@ -7,6 +7,7 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("diet");
+
   const spoonacularAPIKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
 
   const handleSearchQuery = (filter) => {
@@ -23,13 +24,13 @@ const Recipes = () => {
           apiKey: spoonacularAPIKey,
         });
 
-        // Ajoutez les filtres dynamiquement
+        // Ajout des filtres dynamiquement
         if (activeFilter === "diet") {
-          params.append("diet", "vegetarian"); // Exemple : végétarien
+          params.append("diet", "vegetarian");
         } else if (activeFilter === "maxProtein") {
-          params.append("maxProtein", 50); // Exemple : max 50g protéines
+          params.append("maxProtein", 50);
         } else if (activeFilter === "maxCarbs") {
-          params.append("maxCarbs", 30); // Exemple : max 30g glucides
+          params.append("maxCarbs", 30);
         }
 
         const response = await fetch(`${baseUrl}?${params.toString()}`);
@@ -39,7 +40,7 @@ const Recipes = () => {
         }
 
         const data = await response.json();
-        setRecipes(data.results || []); // Mettez à jour les recettes
+        setRecipes(data.results || []);
       } catch (error) {
         console.error("Erreur lors de la récupération des données :", error);
       } finally {
@@ -48,7 +49,7 @@ const Recipes = () => {
     };
 
     fetchRecipes();
-  }, [activeFilter]);
+  }, [activeFilter, spoonacularAPIKey]);
 
   //effets d'apparition
   const cardVariants = {
