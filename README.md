@@ -161,12 +161,9 @@ npm run dev
 ### **3. Lancer JSON Server (pour l'API locale)**
 
 ```bash
-json-server --watch db.json --port 5000
+json-server --watch exercises.json --port 5000
 ```
 
 ---
 
 ### Debug
-
-- revoir calcul de la durée totale
-- ajouter un .env pour api firebase
