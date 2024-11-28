@@ -39,6 +39,9 @@ const Recipes = () => {
 
   return (
     <div className="mt-10">
+      <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+        Idées de Recettes
+      </h1>
       <div
         id="optionsSearchQuery"
         className="flex flex-wrap gap-4 flex-col sm:flex-row justify-center items-center mb-6"
@@ -65,9 +68,6 @@ const Recipes = () => {
           </button>
         ))}
       </div>
-      <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-        Idées de Recettes
-      </h1>
       {loading ? (
         <p className="text-center text-gray-600">Chargement...</p>
       ) : recipes.length > 0 ? (

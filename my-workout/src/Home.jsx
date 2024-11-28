@@ -30,7 +30,7 @@ function Home() {
   });
 
   return (
-    <div className="Home min-h-screen bg-gray-100 flex flex-col">
+    <div className="Home min-h-screen bg-gray-100  flex flex-col">
       <main className="flex-grow container mx-auto p-6">
         <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
           Suivez vos progrès et atteignez vos objectifs !
