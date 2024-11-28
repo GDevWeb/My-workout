@@ -64,8 +64,8 @@ L'application "Journal d'entraînement" est conçue pour permettre aux utilisate
   - `useFetchExercises` : Gérer la récupération des exercices via un contexte global.
   - `useWorkoutForm` : Encapsuler la logique de gestion des entrées dans le formulaire.
 - Déplacer les fonctions utilitaires dans des fichiers dédiés :
-  - Formatage des dates/heures.
-  - Calculs (durée totale, charge totale).
+  - ✅Formatage des dates/heures.
+  - ✅Calculs (durée totale, charge totale).
 
 ### **3. Mise en place d'un contexte**
 
@@ -123,7 +123,7 @@ src/
 │   └── ✅workoutApi.js
 ├── utils/                 # Fonctions utilitaires
 │   ├── ✅calculate.js       # Calculs (charge, durée, etc.)
-│   └── formatDate.js      # Formatage des dates/heures
+│   └── ✅formatDate.js      # Formatage des dates/heures
 └── ✅Home.jsx                # Composant principal
 ```
 

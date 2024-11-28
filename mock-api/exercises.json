@@ -65,10 +65,32 @@
       "totalDuration": 390
     },
     {
-      "id": "a042",
-      "title": "test2",
+      "id": "1c2a",
+      "title": "test",
       "date": "2024-11-27",
-      "time": "16:25",
+      "time": "16:54",
+      "exercises": [
+        {
+          "exercise": "Push-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Squat",
+          "reps": "15",
+          "weight": "71",
+          "rest": "03:00"
+        }
+      ],
+      "totalLoad": 2130,
+      "totalDuration": 155
+    },
+    {
+      "id": "7156",
+      "title": "Test de jeudi 281124",
+      "date": "2024-11-28",
+      "time": "09:05",
       "exercises": [
         {
           "exercise": "Push-Up",
@@ -83,14 +105,54 @@
           "rest": "02:00"
         },
         {
+          "exercise": "Push-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
           "exercise": "Pull-Up",
           "reps": "15",
           "weight": "71",
           "rest": "02:00"
         }
       ],
-      "totalLoad": 2130,
-      "totalDuration": 154
+      "totalLoad": 4260,
+      "totalDuration": 780
+    },
+    {
+      "id": "7157",
+      "title": "Test de jeudi 281124",
+      "date": "2024-11-28",
+      "time": "09:05",
+      "exercises": [
+        {
+          "exercise": "Push-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Pull-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Push-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        },
+        {
+          "exercise": "Pull-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        }
+      ],
+      "totalLoad": 4260,
+      "totalDuration": 780
     }
   ]
 }

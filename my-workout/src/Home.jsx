@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import CardExercise from "./components/CardExercise";
+import Recipes from "./components/Recipes";
 import { AuthContext } from "./context/AuthContext";
 import { ExercisesContext } from "./context/ExercisesContext";
 
@@ -50,6 +51,7 @@ function Home() {
             <div className="workouts-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {renderLastWorkouts}
             </div>
+            <Recipes />
           </>
         )}
       </main>
