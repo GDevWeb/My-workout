@@ -43,62 +43,58 @@
   ],
   "workouts": [
     {
-      "id": "7156",
-      "title": "Test de jeudi 281124",
-      "date": "2024-11-28",
-      "time": "09:05",
+      "id": "b285",
+      "title": "ttt",
+      "date": "2024-11-29",
+      "time": "16:20",
       "exercises": [
         {
-          "exercise": "Squat",
-          "reps": "20",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Squat",
-          "reps": "20",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Pull-Up",
-          "reps": "20",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
           "exercise": "Push-Up",
-          "reps": "20",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Pull-Up",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Push-Up",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Pull-Up",
-          "reps": "15",
+          "reps": "11",
           "weight": "71",
           "rest": "02:00"
         }
       ],
-      "totalLoad": 4260,
-      "totalDuration": 780
+      "totalLoad": 781,
+      "totalDuration": 175
     },
     {
-      "id": "7157",
-      "title": "Test de jeudi 281124",
-      "date": "2024-11-28",
-      "time": "09:05",
+      "id": "d91a",
+      "title": "test",
+      "date": "2024-11-29",
+      "time": "17:07",
+      "exercises": [
+        {
+          "exercise": "Pull-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        }
+      ],
+      "totalLoad": 1065,
+      "totalDuration": 195
+    },
+    {
+      "id": "476e",
+      "title": "vendredi 291124",
+      "date": "2024-11-29",
+      "time": "17:07",
+      "exercises": [
+        {
+          "exercise": "Push-Up",
+          "reps": "15",
+          "weight": "71",
+          "rest": "02:00"
+        }
+      ],
+      "totalLoad": 1065,
+      "totalDuration": 195
+    },
+    {
+      "id": "b05b",
+      "title": "test 2",
+      "date": "2024-11-29",
+      "time": "17:20",
       "exercises": [
         {
           "exercise": "Push-Up",
@@ -113,20 +109,14 @@
           "rest": "02:00"
         },
         {
-          "exercise": "Push-Up",
-          "reps": "15",
-          "weight": "71",
-          "rest": "02:00"
-        },
-        {
-          "exercise": "Pull-Up",
+          "exercise": "Squat",
           "reps": "15",
           "weight": "71",
           "rest": "02:00"
         }
       ],
-      "totalLoad": 4260,
-      "totalDuration": 780
+      "totalLoad": 3195,
+      "totalDuration": 585
     }
   ]
 }

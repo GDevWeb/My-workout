@@ -24,6 +24,19 @@ const NavBar = () => {
         </li>
 
         <li>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive
+                ? "text-white-500 font-bold"
+                : "hover:text-white-300 transition"
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+
+        <li>
           {!currentUser ? (
             <NavLink
               to="/login"
@@ -59,19 +72,6 @@ const NavBar = () => {
             </NavLink>
           </li>
         )}
-
-        <li>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              isActive
-                ? "text-white-500 font-bold"
-                : "hover:text-white-300 transition"
-            }
-          >
-            Dashboard
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );

@@ -36,7 +36,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="flex flex-col min-h-screen container mx-auto py-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">
         Bienvenue, {currentUser.email}
       </h1>
@@ -48,8 +48,8 @@ const Dashboard = () => {
         {loading ? (
           <p className="text-gray-500">Chargement des données...</p>
         ) : workouts.length > 0 ? (
-          <ul className="space-y-4">
-            {workouts.slice(0, 1).map((workout) => (
+          <ul className="flex items-center justify-center space-y-4">
+            {workouts.slice(workouts.length - 1).map((workout) => (
               <li
                 key={workout.id}
                 className="p-4 bg-gray-100 shadow rounded-md"
