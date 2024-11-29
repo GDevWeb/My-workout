@@ -38,29 +38,36 @@ const Dashboard = () => {
         {loading ? (
           <p className="text-gray-500">Chargement des données...</p>
         ) : workouts.length > 0 ? (
-          <ul className="flex gap-4 items-center justify-center space-y-4">
-            {workouts.slice(0, 4).map((workout) => (
-              <li
-                key={workout.id}
-                className="card min-h-[300px] bg-white shadow-lg rounded-lg p-6 flex flex-col gap-4 transition hover:shadow-xl hover:-translate-y-1"
-              >
-                <div className="mb-2">
-                  <h1 className="text-xl font-extrabold">{workout.title}</h1>
-                  <span className="text-sm text-gray-500">
-                    {formatDate(workout.date)} à {workout.time}
-                  </span>
-                  <p>Charge totale : {workout.totalLoad} kg</p>
-                  <p>Durée totale : {formatDuration(workout.totalDuration)}</p>
-                </div>
-                <Link
-                  to={`/workouts/${workout.id}`}
-                  className="flex items-center justify-end text-blue-500 hover:underline"
+          <>
+            <h2 className="text-2xl text-center font-semibold text-blue-600 mb-4">
+              Votre dernier entraînement
+            </h2>
+            <ul className="flex gap-4 items-center justify-center space-y-4">
+              {workouts.slice(0, 1).map((workout) => (
+                <li
+                  key={workout.id}
+                  className="card bg-white shadow-lg rounded-lg p-6 flex flex-col gap-4 transition hover:shadow-xl hover:-translate-y-1"
                 >
-                  Voir les détails
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  <div className="mb-2">
+                    <h1 className="text-xl font-extrabold">{workout.title}</h1>
+                    <span className="text-sm text-gray-500">
+                      {formatDate(workout.date)} à {workout.time}
+                    </span>
+                    <p>Charge totale : {workout.totalLoad} kg</p>
+                    <p>
+                      Durée totale : {formatDuration(workout.totalDuration)}
+                    </p>
+                  </div>
+                  <Link
+                    to={`/workouts/${workout.id}`}
+                    className="flex items-center justify-end text-blue-500 hover:underline"
+                  >
+                    Voir les détails
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </>
         ) : (
           <p className="text-gray-500">
             Aucun entraînement enregistré pour le moment.

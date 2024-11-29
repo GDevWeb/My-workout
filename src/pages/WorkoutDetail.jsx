@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ExercisesContext } from "../context/exercisesContext";
 import { deleteWorkout } from "../services/workoutApi";
 
 const WorkoutDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { workouts, fetchWorkouts } = useContext(ExercisesContext);
 
   const workout = workouts.find((workout) => workout.id === id);
@@ -20,6 +21,15 @@ const WorkoutDetail = () => {
 
   return (
     <div className="flex flex-col min-h-screen container mx-auto py-8">
+      <div className="w-full flex items-center justify-start">
+        <button
+          onClick={() => navigate(-1)}
+          className="w-fit bg-blue-500 text-white px-2 py-2 rounded-md hover:bg-blue-600 transition mb-4"
+        >
+          Retour à la page précédente
+        </button>
+      </div>
+
       <h1 className="text-3xl font-bold text-gray-800 mb-6">
         Détails de la séance : {workout.title}
       </h1>
@@ -41,7 +51,7 @@ const WorkoutDetail = () => {
             <p>Pause : {exercise.rest} secondes</p>
           </li>
         ))}
-        <div className="w-full flex justify-end items-end">
+        <div className="w-full flex items-center justify-around">
           <button
             onClick={() => handleDeleteWorkout(workout.id)}
             className="bg-red-500 text-white px-2 py-2 rounded-md hover:bg-red-600 transition"
