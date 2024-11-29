@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const WORKOUTS_URL = "http://localhost:5000/workouts";
+const WORKOUTS_URL = "http://localhost:3000/workouts";
 
 /**
  * Récupère tous les journaux d'entraînement.

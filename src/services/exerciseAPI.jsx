@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/exercises";
+const API_URL = "http://localhost:3000/exercises";
 
 /**
  * Récupère tous les exercices.

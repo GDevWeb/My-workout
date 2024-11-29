@@ -118,7 +118,7 @@ npm run dev
 Si tu utilises JSON Server pour simuler une API locale :
 
 ```bash
-json-server --watch db.json --port 5000
+json-server --watch db.json --port 3000
 ```
 
 ---
