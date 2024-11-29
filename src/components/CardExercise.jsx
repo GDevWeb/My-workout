@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 
 const CardExercise = ({
@@ -8,6 +9,7 @@ const CardExercise = ({
   exercises,
   totalDuration,
   totalLoad,
+  workout,
 }) => {
   return (
     <div
@@ -41,14 +43,22 @@ const CardExercise = ({
           ))}
         </ul>
       </main>
-      <footer className="pt-2 border-t">
+      <footer className="py-2 border-t">
         <p className="text-gray-800">
           <strong>Durée totale :</strong>{" "}
           <span>{Math.floor(totalDuration / 60)}</span> minutes
         </p>
-        <p className="text-gray-800">
+        <p className="pb-2 text-gray-800">
           <strong>Charge totale :</strong> <span>{totalLoad}</span> kg
         </p>
+        <div className="pt-2 border-t">
+          <Link
+            to={`/workouts/${workout.id}`}
+            className="flex items-center justify-end text-blue-500 hover:underline"
+          >
+            Voir les détails
+          </Link>
+        </div>
       </footer>
     </div>
   );
@@ -70,4 +80,5 @@ CardExercise.propTypes = {
   ).isRequired,
   totalDuration: PropTypes.number.isRequired,
   totalLoad: PropTypes.number.isRequired,
+  workout: PropTypes.string.isRequired,
 };

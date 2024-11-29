@@ -25,6 +25,7 @@ function Home() {
         exercises={exercises}
         totalDuration={totalDuration}
         totalLoad={totalLoad}
+        workout={workout}
       />
     );
   });
