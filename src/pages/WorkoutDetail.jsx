@@ -51,7 +51,7 @@ const WorkoutDetail = () => {
             <p>Pause : {exercise.rest} secondes</p>
           </li>
         ))}
-        <div className="w-full flex items-center justify-around">
+        <div className="w-full flex items-center justify-end">
           <button
             onClick={() => handleDeleteWorkout(workout.id)}
             className="bg-red-500 text-white px-2 py-2 rounded-md hover:bg-red-600 transition"

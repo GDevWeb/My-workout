@@ -88,6 +88,7 @@ src/
 │   ├── Home.jsx           # Page d'accueil
 │   ├── Login.jsx          # Page de connexion
 │   └── Signup.jsx         # Page d'inscription
+│   └── WorkoutDetail.jsx  # Page detail du workout
 ├── services/              # Intégration API
 │   ├── exerciseApi.js     # Récupération des exercices
 │   └── workoutApi.js      # CRUD des workouts
