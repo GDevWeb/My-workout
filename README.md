@@ -161,7 +161,7 @@ npm run dev
 ### **3. Lancer JSON Server (pour l'API locale)**
 
 ```bash
-json-server --watch exercises.json --port 5000
+json-server --watch exercises.json --port 5000 // ça aurrait été mieux de préciser comment installer json-server et aussi de donner le chemin de fichier précis à partir de la racine du projet backend/mock-api/...
 ```
 
 ---

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const WORKOUTS_URL = "http://localhost:5000/workouts";
+const WORKOUTS_URL = "http://localhost:5001/workouts"; // cela pouvait être mit dans une variable d'env
 
 /**
  * Récupère tous les journaux d'entraînement.
@@ -8,7 +8,7 @@ const WORKOUTS_URL = "http://localhost:5000/workouts";
  */
 export const getWorkouts = async () => {
   try {
-    const response = await axios.get(WORKOUTS_URL);
+    const response = await axios.get(WORKOUTS_URL); // Pour info : il est possible de créer une conf axios pour déterminer la base de l'URL ex : http://localhost:5001 et ne pas avoir à la déclarer à chaque fois
     return response.data;
   } catch (error) {
     console.error(

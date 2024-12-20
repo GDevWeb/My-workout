@@ -54,7 +54,7 @@ const WorkoutForm = ({ onSubmit }) => {
       !newExercise.weight ||
       !newExercise.rest
     ) {
-      alert("Veuillez remplir tous les champs pour ajouter un exercice.");
+      alert("Veuillez remplir tous les champs pour ajouter un exercice."); // Pourquoi avoir fait le choix d'utiliser des alertes pour ces messages d'erreurs alors que pour la connexion l'erreur s'affiche endessous des champs ?
       return;
     }
     setWorkoutExercises((prev) => [...prev, newExercise]);
