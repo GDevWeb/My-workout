@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getExercises } from "../services/exerciseApi";
+import { getExercises } from "../services/exerciseAPI.jsx";
 
 const WorkoutForm = ({ onSubmit }) => {
   const [exercises, setExercises] = useState([]); // Liste des exercices disponibles

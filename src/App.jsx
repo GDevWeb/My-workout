@@ -20,6 +20,11 @@ function App() {
         ) : (
           "Vos dernières séances d'entraînements"
         )}
+
+        <h1>
+          Bonjour ALi, merci pour ta patience. J&apos;ai finalisé ce 2nd Tp avec
+          quelques modifications. Om est plus de minuit. Je vais dormir 😫💤
+        </h1>
       </main>
     </div>
   );
