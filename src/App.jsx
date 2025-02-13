@@ -25,6 +25,11 @@ function App() {
           Bonjour ALi, merci pour ta patience. J&apos;ai finalisé ce 2nd Tp avec
           quelques modifications. Om est plus de minuit. Je vais dormir 😫💤
         </h1>
+
+
+        <h1>
+          Bonjour Gaëtan, c'est super je suis entrain de ragarder ce que tu as fait, très bon travail ! Bon courage pour cette journée ;)
+        </h1>
       </main>
     </div>
   );
